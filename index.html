@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Simon</title>
+  <link rel="stylesheet" href="style.min.css">
+</head>
+
+<body>
+  <header id="header">Simon Memory Game</header>
+  <segment class="container">
+    <div class="gameBoard">
+      <div class="boardBorder">
+        <div id="green" class="gameBtns noClick"></div>
+        <div id="red" class="gameBtns noClick"></div>
+        <div id="yellow" class="gameBtns noClick"></div>
+        <div id="blue" class="gameBtns noClick"></div>
+      </div>
+    </div>
+  </segment>
+  <segment class="cPanelContainer">
+    <div class="cPanel">
+      <div class="cPanel-btns">
+        <div class="btnSpace">
+          <div>
+            <input id="scoreDisplay" name="score" type="text" disabled="disabled" />
+          </div>
+          <div>
+            <button id="start" name="start"></button>
+          </div>
+          <div>
+            <button id="strict" name="strict"></button>
+          </div>
+          <div>
+            <label for="score">Score</label>
+          </div>
+          <div>
+            <label for="start">Start</label>
+          </div>
+          <div>
+            <label for="strict">Strict</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </segment>
+  <script src="main.min.js"></script>
+</body>
+
+</html>
