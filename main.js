@@ -1,3 +1,5 @@
+"use strict";
+
 // Audio
 const greenAudio = new Audio(
   "https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"
@@ -30,7 +32,7 @@ let strictMode = false;
 let time = 0;
 
 // Switches game between strict mode
-let setStrict = () => {
+const setStrict = () => {
   if (strictMode === false) {
     strict.style.backgroundColor = "#fc5b1a";
     strictMode = true;
@@ -41,7 +43,7 @@ let setStrict = () => {
 };
 
 // Start button initializes the reset. This is beginning of the game
-let reset = () => {
+const reset = () => {
   header.innerText = "Simon Memory Game";
   compSequence = [];
   userSequence = [];
@@ -53,25 +55,25 @@ let reset = () => {
 
 // On click of the buttons they add a number to the users array and run the
 // function to compare user array with computer array.
-let greenClick = () => {
+const greenClick = () => {
   green();
   userSequence.push(1);
   userMoves();
 };
 
-let redClick = () => {
+const redClick = () => {
   red();
   userSequence.push(2);
   userMoves();
 };
 
-let yellowClick = () => {
+const yellowClick = () => {
   yellow();
   userSequence.push(3);
   userMoves();
 };
 
-let blueClick = () => {
+const blueClick = () => {
   blue();
   userSequence.push(4);
   userMoves();
@@ -86,14 +88,14 @@ start.addEventListener("click", reset);
 strict.addEventListener("click", setStrict);
 
 // Generates random number and puts it in the computers array.
-let startRound = () => {
+const startRound = () => {
   random = Math.floor(Math.random() * 4 + 1);
   compSequence.push(random);
   time = 0;
 };
 
 // Runs the computers sequence and disables/enables buttons.
-let runSequence = () => {
+const runSequence = () => {
   scoreDisplay.value = score;
   gameBtns.forEach((val, i) => {
     gameBtns[i].classList.add("noClick");
@@ -114,10 +116,10 @@ let runSequence = () => {
     gameBtns.forEach((val, i) => {
       gameBtns[i].classList.remove("noClick");
     });
-  }, time + 200);
+  }, time + 500);
 };
 
-let userMoves = () => {
+const userMoves = () => {
   compSequence.forEach(val => {
     // If the array indexs of both arrays dont match run wrong sequence function.
     if (
@@ -143,7 +145,7 @@ let userMoves = () => {
   }
 };
 
-let wrongSequence = () => {
+const wrongSequence = () => {
   userSequence = [];
   setTimeout(() => {
     if (strictMode) {
@@ -156,25 +158,25 @@ let wrongSequence = () => {
 };
 
 // Each of these play the audio and change the color for 500ms.
-let green = () => {
+const green = () => {
   greenAudio.play();
   greenBtn.style.background = "#00ebbd";
   setTimeout(() => (greenBtn.style.background = "#00b894"), 500);
 };
 
-let red = () => {
+const red = () => {
   redAudio.play();
   redBtn.style.background = "#de5b5b";
   setTimeout(() => (redBtn.style.background = "#d63031"), 500);
 };
 
-let yellow = () => {
+const yellow = () => {
   yellowAudio.play();
   yellowBtn.style.background = "#fedda0";
   setTimeout(() => (yellowBtn.style.background = "#fdcb6e"), 500);
 };
 
-let blue = () => {
+const blue = () => {
   blueAudio.play();
   blueBtn.style.background = "#289df6";
   setTimeout(() => (blueBtn.style.background = "#0984e3"), 500);
